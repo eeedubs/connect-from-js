@@ -25,12 +25,10 @@ function searchByFirstName(db) {
         values: [command]
         }
     console.log("Searching...");
-    // console.log('Search query: ', query);
     db.query(query, (err, result) => {
         if (err) {
             return console.error("Connection err in searchByFirstName: ", err);
         }
-        // console.log(result.rows.length);
         console.log(`Found ${result.rows.length} person(s) by the name '${command}'.`)
         result.rows.forEach(function(row, index) {
             console.log(` - ${index + 1} : ${row.first_name} ${row.last_name}, born \'${moment(row.birthdate).format('YYYY-MM-DD')}\'`);
