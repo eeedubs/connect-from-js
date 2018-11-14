@@ -29,7 +29,7 @@ function searchByFirstName(db) {
         if (err) {
             return console.error("Connection err in searchByFirstName: ", err);
         }
-        console.log(`Found ${result.rows.length} person(s) by the name '${command}'.`)
+        console.log(`Found ${result.rows.length} person(s) by the name '${command}':`)
         result.rows.forEach(function(row, index) {
             console.log(` - ${index + 1} : ${row.first_name} ${row.last_name}, born \'${moment(row.birthdate).format('YYYY-MM-DD')}\'`);
         });
